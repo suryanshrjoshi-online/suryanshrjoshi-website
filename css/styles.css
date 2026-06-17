@@ -365,7 +365,7 @@ h1, h2, h3 {
 }
 .about-copy p:last-child { margin-bottom: 0; }
 
-/* ---------- Selected Experience ---------- */
+/* ---------- Brands, Organizations & Projects ---------- */
 .experience { background: var(--ivory-deep); }
 .experience-intro {
   color: var(--ink-soft);
@@ -373,79 +373,195 @@ h1, h2, h3 {
   max-width: 56ch;
   margin: 1.25rem 0 0;
 }
-.experience-list {
-  list-style: none;
-  margin: 0 0 clamp(2.5rem, 5vw, 4rem);
-  padding: 0;
-  border-top: 1px solid var(--line);
-}
-.experience-item {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.5rem;
-  padding: 1.75rem 0;
-  border-bottom: 1px solid var(--line);
-  transition: padding-left 0.4s var(--ease);
-}
-.experience-item:hover { padding-left: 0.5rem; }
-.experience-period {
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--gold-deep);
-  font-weight: 500;
-}
-.experience-body h3 {
-  font-size: clamp(1.45rem, 3vw, 1.9rem);
-  margin: 0 0 0.2rem;
-}
-.experience-role {
-  margin: 0 0 0.7rem;
-  font-size: 0.9rem;
-  letter-spacing: 0.04em;
-  color: var(--muted);
-}
-.experience-body p:last-child {
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: 0.98rem;
-  max-width: 64ch;
-}
 
-.experience-metrics {
+/* PART 1 — Logo showcase */
+.logo-wall {
   list-style: none;
-  margin: 0;
+  margin: clamp(2.5rem, 5vw, 3.5rem) 0 clamp(3.5rem, 7vw, 5.5rem);
   padding: 0;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
-.experience-metrics li {
+.logo-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--ivory);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 1.5rem 1.5rem;
+  padding: 1.4rem 1.25rem;
+  min-height: 104px;
   transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), border-color 0.45s var(--ease);
 }
-.experience-metrics li:hover {
+.logo-chip:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 26px 46px -30px rgba(27, 24, 19, 0.4);
+  border-color: rgba(176, 141, 87, 0.5);
+}
+.logo-chip img {
+  max-width: 100%;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.78;
+  transition: filter 0.4s var(--ease), opacity 0.4s var(--ease);
+}
+.logo-chip:hover img {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+/* Shared block headings */
+.help-head { margin: 0 0 1.75rem; }
+.block-title {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  margin-top: 0.4rem;
+}
+
+/* PART 2 — What I help businesses with */
+.help-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0 0 clamp(3.5rem, 7vw, 5.5rem);
+}
+.help-card {
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.6rem;
+  position: relative;
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), border-color 0.45s var(--ease);
+}
+.help-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.75rem;
+  bottom: 1.75rem;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--gold);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+}
+.help-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 30px 50px -30px rgba(27, 24, 19, 0.35);
   border-color: rgba(176, 141, 87, 0.5);
 }
-.experience-metrics strong {
-  display: block;
+.help-card:hover::before { opacity: 1; }
+.help-card h4 {
   font-family: var(--font-serif);
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
-  font-weight: 600;
-  line-height: 1.1;
+  font-weight: 500;
+  font-size: 1.28rem;
+  margin: 0 0 0.5rem;
   color: var(--ink);
-  margin-bottom: 0.4rem;
 }
-.experience-metrics span {
-  font-size: 0.9rem;
+.help-card p {
+  margin: 0;
   color: var(--ink-soft);
+  font-size: 0.96rem;
 }
+
+/* PART 3 — Selected work */
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0 0 clamp(3.5rem, 7vw, 5.5rem);
+}
+.work-card {
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.9rem 1.75rem;
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), border-color 0.45s var(--ease);
+}
+.work-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 50px -30px rgba(27, 24, 19, 0.35);
+  border-color: rgba(176, 141, 87, 0.5);
+}
+.work-card h4 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.25rem, 3vw, 1.55rem);
+  line-height: 1.15;
+  margin: 0 0 0.55rem;
+  color: var(--ink);
+}
+.work-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+  max-width: 56ch;
+}
+
+/* PART 4 — Featured project */
+.featured {
+  display: grid;
+  gap: 2rem;
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.75rem, 4vw, 3rem);
+}
+.featured-copy {
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  max-width: 60ch;
+  margin: 1.25rem 0 1.5rem;
+}
+.featured-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.featured-tags li {
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 0.45rem 0.95rem;
+}
+.featured-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+.featured-photo {
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--beige-soft);
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
+}
+.featured-photo--lead {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 10;
+}
+.featured-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease);
+}
+.featured-photo:hover {
+  box-shadow: 0 24px 44px -28px rgba(27, 24, 19, 0.45);
+}
+.featured-photo:hover img { transform: scale(1.05); }
 
 /* ---------- Services ---------- */
 .services { background: var(--ivory); }
@@ -667,7 +783,10 @@ h1, h2, h3 {
    ============================================================ */
 @media (min-width: 640px) {
   .cards-grid { grid-template-columns: repeat(2, 1fr); }
-  .experience-metrics { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .logo-wall { grid-template-columns: repeat(3, 1fr); }
+  .help-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .work-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .featured-photo--lead { aspect-ratio: 16 / 9; }
   .industry-list { grid-template-columns: repeat(2, 1fr); column-gap: 2.5rem; }
   .industry-list li:nth-last-child(2) { border-bottom: 1px solid var(--line); }
   .footer-inner { grid-template-columns: 2fr 1fr 1fr; }
@@ -681,8 +800,11 @@ h1, h2, h3 {
   .hero-grid { grid-template-columns: 1.05fr 0.95fr; }
   .about-grid { grid-template-columns: 0.85fr 1.15fr; gap: 3.5rem; }
   .cards-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-  .experience-item { grid-template-columns: 200px 1fr; gap: 2.5rem; align-items: start; }
-  .experience-metrics { grid-template-columns: repeat(4, 1fr); }
+  .logo-wall { grid-template-columns: repeat(4, 1fr); }
+  .help-grid { grid-template-columns: repeat(4, 1fr); }
+  .work-grid { grid-template-columns: repeat(3, 1fr); }
+  .featured { grid-template-columns: 0.9fr 1.1fr; gap: 3rem; align-items: center; }
+  .featured-photo--lead { grid-column: 1 / -1; aspect-ratio: 16 / 10; }
   .why-grid { grid-template-columns: 0.85fr 1.15fr; gap: 4rem; align-items: start; }
   .philosophy-pillars { grid-template-columns: repeat(4, 1fr); }
   .section-head { margin-bottom: 4rem; }
