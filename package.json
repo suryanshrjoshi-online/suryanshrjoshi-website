@@ -1,0 +1,9 @@
+{
+  "name": "suryansh-r-joshi",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx -y serve -l 3000 .",
+    "start": "npx -y serve -l 3000 ."
+  }
+}
